@@ -1,0 +1,47 @@
+export async function getRandom() {
+	try {
+		const response = await fetch(
+			"https://rhodesapi.up.railway.app/api/operator/",
+			{
+				cache: "no-cache",
+			}
+		);
+		if (!response.ok) {
+			throw new Error("Failed to fetch a random operator!");
+		}
+		const data = await response.json();
+
+		const sixStarOperators = data.filter(
+			(operator: any) => operator.rarity === 6
+		);
+		const randomIndex = Math.floor(Math.random() * sixStarOperators.length);
+		const selectedOperator = sixStarOperators[randomIndex];
+
+		const e2Image = await fetchImage(selectedOperator);
+		selectedOperator.e2Image = e2Image;
+
+		return selectedOperator;
+	} catch (error: any) {
+		throw new Error(`Error fetching random operator:${error.message}`);
+	}
+}
+
+async function fetchImage(operator: any) {
+	const operatorName = operator.name;
+
+	const response = await fetch(
+		`https://rhodesapi.up.railway.app/api/operator/${operatorName}`,
+		{
+			cache: "no-cache",
+		}
+	);
+
+	if (!response.ok) {
+		throw new Error(`Failed to fetch E2 image for operator: ${operatorName}`);
+	}
+
+	const imageData = await response.json();
+	const e2Image = imageData.art.find((image: any) => image.name === "E2");
+
+	return e2Image ? e2Image.link : null;
+}

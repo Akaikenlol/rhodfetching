@@ -1,16 +1,17 @@
-export async function getOperator() {
+export async function getOperator(operatorName: string) {
 	// const response = await fetch("https://rhodesapi.up.railway.app/api/operator");
 	const response = await fetch(
-		"https://rhodesapi.up.railway.app/api/operator/ling"
+		`https://rhodesapi.up.railway.app/api/operator/${operatorName}`,
+		{
+			cache: "no-cache",
+		}
 	);
-	const data = await response.json();
 
-	if (typeof data.tags && data.class === "string") {
-		data.tags = data.tags.split("/");
-		data.class = data.class.split("/");
-	} else {
-		console.log("Data tags and class is not a string");
+	if (!response.ok) {
+		throw new Error(`Fail to fetch operator ${operatorName} data!`);
 	}
+
+	const data = await response.json();
 
 	return data;
 }

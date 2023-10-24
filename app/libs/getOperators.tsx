@@ -1,4 +1,4 @@
-export default async function getOperators(limit = 5) {
+export default async function getOperators(limit = 10) {
 	const response = await fetch("https://rhodesapi.up.railway.app/api/operator");
 
 	if (!response.ok) {

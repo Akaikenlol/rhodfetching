@@ -27,7 +27,7 @@ export async function getRandom() {
 }
 
 async function fetchImage(operator: any) {
-	const operatorName = operator.name;
+	const operatorName = encodeURIComponent(operator.name);
 
 	const response = await fetch(
 		`https://rhodesapi.up.railway.app/api/operator/${operatorName}`,
@@ -41,7 +41,8 @@ async function fetchImage(operator: any) {
 	}
 
 	const imageData = await response.json();
-	const e2Image = imageData.art.find((image: any) => image.name === "E2");
+	const E2Image = imageData.art.find((image: any) => image.name === "E2");
+	// const imageLink = E2Image ? E2Image.link : null;
 
-	return e2Image ? e2Image.link : null;
+	return E2Image || null;
 }

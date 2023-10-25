@@ -1,23 +1,7 @@
-"use client";
-
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { getRandom } from "@/utils/random";
-import Link from "next/link";
 
-export default function GetRandomOperator() {
-	const [randomOperator, setRandomOperator] = useState<any | null>(null);
-
-	useEffect(() => {
-		getRandom()
-			.then((operator: any) => {
-				setRandomOperator(operator);
-			})
-			.catch((error: any) => {
-				console.log("Error fetching random operator: ", error);
-			});
-	}, []);
-
+const Ssprops = ({ randomOperator }: any) => {
 	return (
 		<div className="text-center mt-2">
 			<h1 className="text-2xl font-bold">Random Operator</h1>
@@ -40,4 +24,24 @@ export default function GetRandomOperator() {
 			)}
 		</div>
 	);
+};
+
+export default Ssprops;
+
+export async function getServerSideProps() {
+	try {
+		const randomOperator = await getRandom();
+		return {
+			props: {
+				randomOperator,
+			},
+		};
+	} catch (error: any) {
+		console.log("Error fetching random operator!", error);
+		return {
+			props: {
+				randomOperator: null,
+			},
+		};
+	}
 }

@@ -14,7 +14,7 @@ const OperatorsPage = async () => {
 				.map(async (operator: any) => {
 					const operatorImages = await getOperator(operator.name);
 					return (
-						<Link href={`/operators/${operator.id}`}>
+						<Link href={`/operators/${operator.name}`}>
 							<div
 								className="flex justify-center items-center flex-col gap-2 mt-2"
 								key={operator.name}

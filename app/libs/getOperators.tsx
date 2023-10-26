@@ -1,4 +1,4 @@
-export default async function getOperators(limit = 10) {
+export default async function getOperators(limit = 30) {
 	const response = await fetch("https://rhodesapi.up.railway.app/api/operator");
 
 	if (!response.ok) {
@@ -11,7 +11,13 @@ export default async function getOperators(limit = 10) {
 		(operator: any) => operator.rarity === 6
 	);
 
-	const limitedSixStarOperators = sixStarOperators.slice(0, limit);
+	// const limitedSixStarOperators = sixStarOperators.slice(0, limit);
+	// const limitedSixStarOperators = sixStarOperators.filter(
+	// 	(operator: any) => operator.recruitable === "No"
+	// );
+	const limitedSixStarOperators = sixStarOperators.filter(
+		(operator: any) => operator.release_dates.global === "N/A"
+	);
 
 	const imagePromises = limitedSixStarOperators.map(async (operator: any) => {
 		const response = await fetch(

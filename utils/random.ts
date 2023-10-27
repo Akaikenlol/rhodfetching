@@ -42,7 +42,6 @@ async function fetchImage(operator: any) {
 
 	const imageData = await response.json();
 	const E2Image = imageData.art.find((image: any) => image.name === "E2");
-	// const imageLink = E2Image ? E2Image.link : null;
 
 	return E2Image || null;
 }

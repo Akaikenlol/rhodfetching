@@ -10,11 +10,6 @@ export default async function getOperators(limit = 30) {
 	const sixStarOperators = operators.filter(
 		(operator: any) => operator.rarity === 6
 	);
-
-	// const limitedSixStarOperators = sixStarOperators.slice(0, limit);
-	// const limitedSixStarOperators = sixStarOperators.filter(
-	// 	(operator: any) => operator.recruitable === "No"
-	// );
 	const limitedSixStarOperators = sixStarOperators.filter(
 		(operator: any) => operator.release_dates.global === "N/A"
 	);

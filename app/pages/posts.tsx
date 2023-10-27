@@ -1,27 +1,10 @@
-"use client";
-
 import Image from "next/image";
-import { useState, useEffect, Suspense } from "react";
-import { getRandom } from "@/utils/random";
-import Posts from "../pages/posts";
 
-export default function GetRandomOperator() {
-	const [randomOperator, setRandomOperator] = useState<any | null>(null);
-
-	useEffect(() => {
-		getRandom()
-			.then((operator: any) => {
-				setRandomOperator(operator);
-			})
-			.catch((error: any) => {
-				console.log("Error fetching random operator: ", error);
-			});
-	}, []);
-
+const Posts = async ({ promise }: any) => {
+	const randomOperator = await promise();
 	return (
-		<div className="text-center mt-1 ">
-			<h1 className="text-xl mb-2">Random Operator</h1>
-			{/* {randomOperator && (
+		<div>
+			{randomOperator && (
 				<div className="flex flex-col  rounded-md w-[500px] h-[650px] bg-gradient-to-t from-amber-50 to-cyan-50">
 					{randomOperator.e2Image && (
 						<Image
@@ -46,14 +29,9 @@ export default function GetRandomOperator() {
 						</div>
 					</div>
 				</div>
-			)} */}
-			<Suspense
-				fallback={
-					<div className=" h-full rounded-md bg-stone-300">Loading...</div>
-				}
-			>
-				<Posts promise={getRandom} />
-			</Suspense>
+			)}
 		</div>
 	);
-}
+};
+
+export default Posts;

@@ -7,8 +7,17 @@ const OperatorsPage = async () => {
 	const operators = await getOperators();
 
 	return (
-		<div className="text-center mt-2">
-			<h1 className="text-2xl font-bold">Operators</h1>
+		<div className="text-center my-2 flex flex-col justify-center items-center ">
+			<div className="flex gap-5 justify-center items-center w-full">
+				<h1 className="text-xl">CN Released Operators</h1>
+				<Link
+					href="/"
+					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit h-fit p-2 text-xl"
+				>
+					Go to Home
+				</Link>
+			</div>
+
 			{operators
 				.filter((operator: any) => operator.rarity === 6)
 				.map(async (operator: any) => {
@@ -16,7 +25,7 @@ const OperatorsPage = async () => {
 					return (
 						<Link href={`/operators/${operator.name}`}>
 							<div
-								className="flex justify-center items-center flex-col gap-2 mt-2"
+								className="flex flex-col text-center mt-2 w-[500px] h-[95vh] bg-gradient-to-t from-amber-50 to-cyan-50 rounded-md"
 								key={operator.name}
 							>
 								{operatorImages.art && (
@@ -33,14 +42,22 @@ const OperatorsPage = async () => {
 										priority
 									/>
 								)}
-								<h2>Operator Name: {operator.name}</h2>
-								<p>Rarity: {operator.rarity}⭐</p>
-								<p>Class: {operator.class.join(" / ")}</p>
+								<div className=" h-full rounded-md grid grid-flow-col grid-cols-2 gap-2">
+									<div className="flex flex-col text-center justify-center items-center gap-2 rounded-md">
+										<h2>Operator Name: {operator.name}</h2>
+										<p>Rarity: {operator.rarity}⭐</p>
+										<p>Class: {operator.class.join(" / ")}</p>
+									</div>
+									<div className="flex flex-col text-center justify-center items-center gap-2 rounded-md">
+										<p>Affiliation: {operator.affiliation.join(" / ")} ♟️</p>
+										<h2>Race: {operator.lore.race}</h2>
+										<p>Class: {operator.tags.join(" / ")}</p>
+									</div>
+								</div>
 							</div>
 						</Link>
 					);
 				})}
-			<Link href="/">Go to Home</Link>
 		</div>
 	);
 };

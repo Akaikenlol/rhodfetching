@@ -1,9 +1,12 @@
 export async function getOperator(operatorName: string) {
+	// const response = await fetch(
+	// 	`https://rhodesapi.up.railway.app/api/operator/${operatorName}`,
+	// 	{
+	// 		cache: "no-cache",
+	// 	}
+	// );
 	const response = await fetch(
-		`https://rhodesapi.up.railway.app/api/operator/${operatorName}`,
-		{
-			cache: "no-cache",
-		}
+		`https://rhodesapi.up.railway.app/api/operator/${operatorName}`
 	);
 
 	if (!response.ok) {

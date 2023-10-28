@@ -25,6 +25,12 @@ export default async function OperatorProfilePage({
 				>
 					Go Back To Operator List
 				</Link>
+				<Link
+					href="/"
+					className="hover:bg-black hover:text-white rounded-md w-fit h-fit p-2 text-xl transition duration-500 ease-in-out"
+				>
+					Go Back Home
+				</Link>
 			</div>
 
 			<div className="flex justify-center items-center flex-col gap-2 mt-2 w-[500px] h-[90vh] bg-gradient-to-t from-amber-50 to-cyan-50 rounded-md">

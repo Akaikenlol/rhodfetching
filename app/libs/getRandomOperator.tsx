@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, Suspense } from "react";
 import { getRandom } from "@/utils/random";
 import Posts from "../pages/posts";
+import Link from "next/link";
 
 export default function GetRandomOperator() {
 	const [randomOperator, setRandomOperator] = useState<any | null>(null);
@@ -21,39 +22,42 @@ export default function GetRandomOperator() {
 	return (
 		<div className="text-center mt-1 ">
 			<h1 className="text-xl mb-2">Random Operator</h1>
-			{/* {randomOperator && (
-				<div className="flex flex-col  rounded-md w-[500px] h-[650px] bg-gradient-to-t from-amber-50 to-cyan-50">
-					{randomOperator.e2Image && (
-						<Image
-							src={randomOperator.e2Image.link}
-							alt="o-picture"
-							className="object-cover"
-							width={500}
-							height={500}
-							priority
-						/>
-					)}
-					<div className=" h-full rounded-md grid grid-flow-col grid-cols-2 ">
-						<div className="flex flex-col text-center justify-center items-center gap-2 rounded-md">
-							<p>Rarity: {randomOperator.rarity} ⭐</p>
-							<h2>Operator Name: {randomOperator.name}</h2>
-							<p>Class: {randomOperator.class.join(" / ")}</p>
-						</div>
-						<div className="flex flex-col text-center justify-center items-center gap-2 rounded-md">
-							<p>Affiliation: {randomOperator.affiliation.join(" / ")} ♟️</p>
-							<h2>Race: {randomOperator.lore.race}</h2>
-							<p>Class: {randomOperator.tags.join(" / ")}</p>
+			<Link href={`/operator`}>
+				{randomOperator && (
+					<div className="flex flex-col  rounded-md w-[500px] h-[650px] bg-gradient-to-t from-amber-50 to-cyan-50">
+						{randomOperator.e2Image && (
+							<Image
+								src={randomOperator.e2Image.link}
+								alt="o-picture"
+								className="object-cover"
+								width={500}
+								height={500}
+								priority
+							/>
+						)}
+						<div className=" h-full rounded-md grid grid-flow-col grid-cols-2 ">
+							<div className="flex flex-col text-center justify-center items-center gap-2 rounded-md">
+								<p>Rarity: {randomOperator.rarity} ⭐</p>
+								<h2>Operator Name: {randomOperator.name}</h2>
+								<p>Class: {randomOperator.class.join(" / ")}</p>
+							</div>
+							<div className="flex flex-col text-center justify-center items-center gap-2 rounded-md">
+								<p>Affiliation: {randomOperator.affiliation.join(" / ")} ♟️</p>
+								<h2>Race: {randomOperator.lore.race}</h2>
+								<p>Class: {randomOperator.tags.join(" / ")}</p>
+							</div>
 						</div>
 					</div>
-				</div>
-			)} */}
-			<Suspense
+				)}
+			</Link>
+
+			{/* <Suspense
 				fallback={
 					<div className=" h-full rounded-md bg-stone-300">Loading...</div>
 				}
 			>
 				<Posts promise={getRandom} />
-			</Suspense>
+			</Suspense> */}
 		</div>
 	);
 }

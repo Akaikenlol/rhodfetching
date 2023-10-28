@@ -1,10 +1,13 @@
 export async function getRandom() {
 	try {
+		// const response = await fetch(
+		// 	"https://rhodesapi.up.railway.app/api/operator/",
+		// 	{
+		// 		cache: "no-cache",
+		// 	}
+		// );
 		const response = await fetch(
-			"https://rhodesapi.up.railway.app/api/operator/",
-			{
-				cache: "no-cache",
-			}
+			"https://rhodesapi.up.railway.app/api/operator/"
 		);
 		if (!response.ok) {
 			throw new Error("Failed to fetch a random operator!");

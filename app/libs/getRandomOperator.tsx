@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState, useEffect, Suspense } from "react";
 import { getRandom } from "@/utils/random";
-import Posts from "../pages/posts";
 import Link from "next/link";
 
 export default function GetRandomOperator() {
@@ -22,8 +21,8 @@ export default function GetRandomOperator() {
 	return (
 		<div className="text-center mt-1 ">
 			<h1 className="text-xl mb-2">Random Operator</h1>
-			<Link href={`/operator`}>
-				{randomOperator && (
+			{randomOperator && (
+				<Link href={`/${randomOperator.name}`}>
 					<div className="flex flex-col  rounded-md w-[500px] h-[650px] bg-gradient-to-t from-amber-50 to-cyan-50">
 						{randomOperator.e2Image && (
 							<Image
@@ -48,8 +47,8 @@ export default function GetRandomOperator() {
 							</div>
 						</div>
 					</div>
-				)}
-			</Link>
+				</Link>
+			)}
 
 			{/* <Suspense
 				fallback={

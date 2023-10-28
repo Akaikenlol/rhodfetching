@@ -9,7 +9,7 @@ const OperatorsPage = async () => {
 	return (
 		<div className="text-center my-2 flex flex-col justify-center items-center ">
 			<div className="flex gap-5 justify-center items-center w-full">
-				<h1 className="text-xl">CN Released Operators</h1>
+				<h1 className="text-lg">CN Released Operators</h1>
 				<Link
 					href="/"
 					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit h-fit p-2 text-xl"
@@ -24,8 +24,9 @@ const OperatorsPage = async () => {
 					const operatorImages = await getOperator(operator.name);
 					return (
 						<Link href={`/operators/${operator.name}`}>
+							{/* <section> */}
 							<div
-								className="flex flex-col text-center mt-2 w-[500px] h-[95vh] bg-gradient-to-t from-amber-50 to-cyan-50 rounded-md"
+								className="flex flex-col text-center mt-2 w-[500px] h-[100vh] bg-gradient-to-t from-amber-50 to-cyan-50 rounded-md"
 								key={operator.name}
 							>
 								{operatorImages.art && (
@@ -55,6 +56,7 @@ const OperatorsPage = async () => {
 									</div>
 								</div>
 							</div>
+							{/* </section> */}
 						</Link>
 					);
 				})}

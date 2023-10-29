@@ -1,15 +1,15 @@
-import getOperators from "../libs/getOperators";
+import getRecruitableOperators from "@/app/libs/filter";
 import { getOperator } from "@/utils/api";
 import Image from "next/image";
 import Link from "next/link";
 
 const OperatorsPage = async () => {
-	const operators = await getOperators();
+	const operators = await getRecruitableOperators();
 
 	return (
 		<div className="text-center my-2 flex flex-col justify-center items-center ">
 			<div className="flex gap-5 justify-center items-center w-full">
-				<h1 className="text-lg">CN Released Operators</h1>
+				<h1 className="text-lg">Recruitable Operators</h1>
 				<Link
 					href="/"
 					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit h-fit p-2 text-lg"
@@ -17,10 +17,10 @@ const OperatorsPage = async () => {
 					Go to Home
 				</Link>
 				<Link
-					href="/operators/recruitable"
+					href="/operators"
 					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit h-fit p-2 text-lg"
 				>
-					Go to Recruitable
+					Go to Back to CN released operators
 				</Link>
 			</div>
 

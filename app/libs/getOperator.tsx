@@ -1,14 +1,16 @@
 export default async function getOperator(name: string) {
 	const response = await fetch(
-		`https://rhodesapi.up.railway.app/api/operator/${encodeURIComponent(name)}`
+		`https://rhodesapi.up.railway.app/api/operator/${name}`
 	);
+
+	console.log(response);
 
 	if (!response.ok) {
 		throw new Error("Fail to fetch related profile operator information!");
 	}
 
 	const data = await response.json();
-	console.log("data", data);
+	// console.log("data", data);
 
 	const E2Image = data.art.find((image: any) => image.name === "E2");
 

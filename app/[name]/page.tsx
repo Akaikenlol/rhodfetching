@@ -17,16 +17,16 @@ export default async function OperatorProfilePage({
 	return (
 		<div className="text-center mt-2 flex justify-center items-center flex-col">
 			<div className="flex gap-5 justify-center items-center w-full">
-				<h1 className="text-xl">{opData.name}</h1>
+				<h1 className="text-lg">{opData.name}</h1>
 				<Link
 					href="/operators"
-					className="hover:bg-black hover:text-white rounded-md w-fit h-fit p-2 text-xl transition duration-500 ease-in-out"
+					className="hover:bg-black hover:text-white rounded-md w-fit h-fit p-2 text-lg transition duration-500 ease-in-out"
 				>
 					Go Back To Operator List
 				</Link>
 				<Link
 					href="/"
-					className="hover:bg-black hover:text-white rounded-md w-fit h-fit p-2 text-xl transition duration-500 ease-in-out"
+					className="hover:bg-black hover:text-white rounded-md w-fit h-fit p-2 text-lg transition duration-500 ease-in-out"
 				>
 					Go Back Home
 				</Link>

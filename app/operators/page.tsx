@@ -2,26 +2,16 @@ import getOperators from "../libs/getOperators";
 import { getOperator } from "@/utils/api";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "../components/navbar";
 
 const OperatorsPage = async () => {
 	const operators = await getOperators();
 
 	return (
-		<div className="text-center my-2 flex flex-col justify-center items-center ">
+		<div className="text-center  flex flex-col justify-center items-center bg-gradient-to-t from-amber-50 to-cyan-50">
 			<div className="flex gap-5 justify-center items-center w-full">
-				<h1 className="text-lg">CN Released Operators</h1>
-				<Link
-					href="/"
-					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit h-fit p-2 text-lg"
-				>
-					Go to Home
-				</Link>
-				<Link
-					href="/operators/recruitable"
-					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit h-fit p-2 text-lg"
-				>
-					Go to Recruitable
-				</Link>
+				<h1 className="text-lg">CN Operators</h1>
+				<Navbar />
 			</div>
 
 			{operators
@@ -32,7 +22,7 @@ const OperatorsPage = async () => {
 						<Link href={`/operators/${operator.name}`}>
 							{/* <section> */}
 							<div
-								className="flex flex-col text-center mt-2 w-[500px] h-[100vh] bg-gradient-to-t from-amber-50 to-cyan-50 rounded-md"
+								className="flex flex-col text-center mt-2 w-[500px] p-5 mb-5 bg-gradient-to-t from-cyan-100  to-yellow-100 rounded-md"
 								key={operator.name}
 							>
 								{operatorImages.art && (

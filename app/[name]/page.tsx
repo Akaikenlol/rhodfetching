@@ -1,6 +1,7 @@
 import getOperator from "@/app/libs/getOperator";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "../components/navbar";
 
 interface OperatorProfilePage {
 	params: {
@@ -15,24 +16,13 @@ export default async function OperatorProfilePage({
 	const opData = await getOperator(name);
 
 	return (
-		<div className="text-center mt-2 flex justify-center items-center flex-col">
+		<div className="text-center  flex justify-center items-center flex-col bg-gradient-to-t from-amber-50 to-cyan-50 h-[100vh]">
 			<div className="flex gap-5 justify-center items-center w-full">
 				<h1 className="text-lg">{opData.name}</h1>
-				<Link
-					href="/operators"
-					className="hover:bg-black hover:text-white rounded-md w-fit h-fit p-2 text-lg transition duration-500 ease-in-out"
-				>
-					Go Back To Operator List
-				</Link>
-				<Link
-					href="/"
-					className="hover:bg-black hover:text-white rounded-md w-fit h-fit p-2 text-lg transition duration-500 ease-in-out"
-				>
-					Go Back Home
-				</Link>
+				<Navbar />
 			</div>
 
-			<div className="flex justify-center items-center flex-col gap-2 mt-2 w-[500px] h-[90vh] bg-gradient-to-t from-amber-50 to-cyan-50 rounded-md">
+			<div className="flex justify-center items-center flex-col gap-2 mt-2 w-[500px] h-[650px] bg-gradient-to-t from-cyan-100  to-yellow-100 rounded-md">
 				{opData.imageLink && (
 					<Image
 						src={opData.imageLink}

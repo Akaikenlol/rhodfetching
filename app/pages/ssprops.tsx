@@ -3,7 +3,7 @@ import { getRandom } from "@/utils/random";
 
 const Ssprops = ({ randomOperator }: any) => {
 	return (
-		<div className="text-center mt-2">
+		<div className="text-center">
 			<h1 className="text-2xl font-bold">Random Operator</h1>
 			{randomOperator && (
 				<div className="flex flex-col gap-2 mt-2">

@@ -4,7 +4,7 @@ import getOperators from "../libs/getOperators";
 
 const Ssoperator = ({ operators }: any) => {
 	return (
-		<div className="text-center mt-2">
+		<div className="text-center ">
 			<h1 className="text-2xl font-bold">Operators</h1>
 			{operators
 				.filter((operator: any) => operator.rarity === 6)

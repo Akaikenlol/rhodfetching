@@ -1,3 +1,4 @@
+import Navbar from "@/app/components/navbar";
 import getRecruitableOperators from "@/app/libs/filter";
 import { getOperator } from "@/utils/api";
 import Image from "next/image";
@@ -7,21 +8,10 @@ const OperatorsPage = async () => {
 	const operators = await getRecruitableOperators();
 
 	return (
-		<div className="text-center my-2 flex flex-col justify-center items-center ">
-			<div className="flex gap-5 justify-center items-center w-full">
+		<div className="text-center flex flex-col justify-center items-center bg-gradient-to-t from-amber-50 to-cyan-50">
+			<div className="flex gap-5 mt-2 justify-center items-center w-full">
 				<h1 className="text-lg">Recruitable Operators</h1>
-				<Link
-					href="/"
-					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit h-fit p-2 text-lg"
-				>
-					Go to Home
-				</Link>
-				<Link
-					href="/operators"
-					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit h-fit p-2 text-lg"
-				>
-					Go to Back to CN released operators
-				</Link>
+				<Navbar />
 			</div>
 
 			{operators
@@ -32,7 +22,7 @@ const OperatorsPage = async () => {
 						<Link href={`/operators/${operator.name}`}>
 							{/* <section> */}
 							<div
-								className="flex flex-col text-center mt-2 w-[500px] h-[100vh] bg-gradient-to-t from-amber-50 to-cyan-50 rounded-md"
+								className="flex flex-col text-center mt-2 w-[500px] p-5 mb-5 bg-gradient-to-t from-cyan-100  to-yellow-100 rounded-md"
 								key={operator.name}
 							>
 								{operatorImages.art && (
@@ -49,7 +39,7 @@ const OperatorsPage = async () => {
 										priority
 									/>
 								)}
-								<div className=" h-full rounded-md grid grid-flow-col grid-cols-2 gap-2">
+								<div className=" h-fit rounded-md grid grid-flow-col grid-cols-2 gap-2">
 									<div className="flex flex-col text-center justify-center items-center gap-2 rounded-md">
 										<h2>Operator Name: {operator.name}</h2>
 										<p>Rarity: {operator.rarity}⭐</p>

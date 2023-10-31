@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect, Suspense } from "react";
 import { getRandom } from "@/utils/random";
 import Link from "next/link";
+import Button from "../components/button";
 
 export default function GetRandomOperator() {
 	const [randomOperator, setRandomOperator] = useState<any | null>(null);

@@ -1,19 +1,15 @@
 import getOperator from "@/app/libs/getOperator";
 import Image from "next/image";
-import Link from "next/link";
-import Navbar from "../components/navbar";
+import Navbar from "@/app/components/navbar";
 import Button from "@/app/components/button";
-import GetRandomOperator from "../libs/getRandomOperator";
 
-interface OperatorProfilePage {
+interface OperatorE1Page {
 	params: {
 		name: string;
 	};
 }
 
-export default async function OperatorProfilePage({
-	params,
-}: OperatorProfilePage) {
+export default async function OperatorE1Page({ params }: OperatorE1Page) {
 	const { name } = params;
 	const opData = await getOperator(name);
 
@@ -22,12 +18,13 @@ export default async function OperatorProfilePage({
 			<div className="flex gap-5 justify-center items-center w-full">
 				<h1 className="text-lg">{opData.name}</h1>
 				<Navbar />
+				<Button randomOperator={opData.name} />
 			</div>
 
 			<div className="flex justify-center items-center flex-col gap-2 mt-2 w-[500px] h-[650px] bg-gradient-to-t from-cyan-100  to-yellow-100 rounded-md">
-				{opData.imageLink && (
+				{opData.image1Link && (
 					<Image
-						src={opData.imageLink}
+						src={opData.image1Link}
 						alt="o-picture"
 						className="object-cover"
 						width={500}
@@ -48,7 +45,6 @@ export default async function OperatorProfilePage({
 					</div>
 				</div>
 			</div>
-			<Button randomOperator={opData.name} />
 		</div>
 	);
 }

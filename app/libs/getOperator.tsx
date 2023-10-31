@@ -18,10 +18,18 @@ export default async function getOperator(name: string) {
 		throw new Error("E2 image not found for the operator.");
 	}
 
+	const E1Image = data.art.find((image: any) => image.name === "E1");
+
+	if (!E1Image) {
+		throw new Error("E1 image not found for the operator.");
+	}
+
 	const imageLink = E2Image ? E2Image.link : null;
+	const image1Link = E1Image ? E1Image.link : null;
 
 	return {
 		...data,
 		imageLink,
+		image1Link,
 	};
 }

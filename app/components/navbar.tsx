@@ -23,7 +23,7 @@ const Navbar = () => {
 			>
 				CN Operators
 			</Link>
-			<Button />
+			{/* <Button /> */}
 		</div>
 	);
 };

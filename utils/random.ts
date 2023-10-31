@@ -23,6 +23,12 @@ export async function getRandom() {
 		const e2Image = await fetchImage(selectedOperator);
 		selectedOperator.e2Image = e2Image;
 
+		const e1Image = await fetchImage(selectedOperator);
+		selectedOperator.e1Image = e1Image;
+
+		const e0Image = await fetchImage(selectedOperator);
+		selectedOperator.e0Image = e0Image;
+
 		return selectedOperator;
 	} catch (error: any) {
 		throw new Error(`Error fetching random operator:${error.message}`);

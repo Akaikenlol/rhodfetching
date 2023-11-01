@@ -1,9 +1,8 @@
 import getOperator from "@/app/libs/getOperator";
 import Image from "next/image";
-import Link from "next/link";
 import Navbar from "../components/navbar";
 import Button from "@/app/components/button";
-import GetRandomOperator from "../libs/getRandomOperator";
+import Link from "next/link";
 
 interface OperatorProfilePage {
 	params: {
@@ -48,7 +47,13 @@ export default async function OperatorProfilePage({
 					</div>
 				</div>
 			</div>
-			<Button randomOperator={opData.name} />
+			{/* <Button randomOperator={opData.name} /> */}
+			<Link
+				href={`/${opData.name}/E1`}
+				className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit p-1"
+			>
+				E1
+			</Link>
 		</div>
 	);
 }

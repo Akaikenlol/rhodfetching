@@ -9,7 +9,7 @@ const OperatorsPage = async () => {
 
 	return (
 		<div className="text-center  flex flex-col justify-center items-center bg-gradient-to-t from-amber-50 to-cyan-50">
-			<div className="flex gap-5 justify-center items-center w-full">
+			<div className="flex gap-5 justify-center items-center w-full mt-10">
 				<h1 className="text-lg">CN Operators</h1>
 				<Navbar />
 			</div>

@@ -18,7 +18,7 @@ export default async function OperatorE1Page({ params }: OperatorE1Page) {
 			<div className="flex gap-5 justify-center items-center w-full">
 				<h1 className="text-lg">{opData.name}</h1>
 				<Navbar />
-				<Button randomOperator={opData.name} />
+				{/* <Button randomOperator={opData.name} /> */}
 			</div>
 
 			<div className="flex justify-center items-center flex-col gap-2 mt-2 w-[500px] h-[650px] bg-gradient-to-t from-cyan-100  to-yellow-100 rounded-md">

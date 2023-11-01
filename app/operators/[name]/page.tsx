@@ -1,8 +1,6 @@
 import Navbar from "@/app/components/navbar";
 import getOperator from "@/app/libs/getOperator";
 import Image from "next/image";
-import Link from "next/link";
-import { Suspense } from "react";
 
 interface OperatorProfilePage {
 	params: {

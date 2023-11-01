@@ -13,13 +13,11 @@ export default async function getOperator(name: string) {
 	// console.log("data", data);
 
 	const E2Image = data.art.find((image: any) => image.name === "E2");
-
 	if (!E2Image) {
 		throw new Error("E2 image not found for the operator.");
 	}
 
-	const E1Image = data.art.find((image: any) => image.name === "E1");
-
+	const E1Image = data.art.find((img: any) => img.name === "E1");
 	if (!E1Image) {
 		throw new Error("E1 image not found for the operator.");
 	}

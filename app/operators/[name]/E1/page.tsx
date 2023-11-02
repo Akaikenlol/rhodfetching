@@ -1,18 +1,16 @@
 import getOperator from "@/app/libs/getOperator";
 import Image from "next/image";
-import Navbar from "../components/navbar";
-import Button from "@/app/components/button";
+import Navbar from "@/app/components/navbar";
 import Link from "next/link";
+// import Button from "@/app/components/button";
 
-interface OperatorProfilePage {
+interface OperatorE1Page {
 	params: {
 		name: string;
 	};
 }
 
-export default async function OperatorProfilePage({
-	params,
-}: OperatorProfilePage) {
+export default async function OperatorE1Page({ params }: OperatorE1Page) {
 	const { name } = params;
 	const opData = await getOperator(name);
 
@@ -21,12 +19,13 @@ export default async function OperatorProfilePage({
 			<div className="flex gap-5 justify-center items-center w-full">
 				<h1 className="">{opData.name}</h1>
 				<Navbar />
+				{/* <Button randomOperator={opData.name} /> */}
 			</div>
 
 			<div className="flex justify-center items-center flex-col gap-2 mt-2 w-[500px] h-[650px] bg-gradient-to-t from-cyan-100  to-yellow-100 rounded-md">
-				{opData.imageLink && (
+				{opData.image1Link && (
 					<Image
-						src={opData.imageLink}
+						src={opData.image1Link}
 						alt="o-picture"
 						className="object-cover"
 						width={500}
@@ -47,13 +46,20 @@ export default async function OperatorProfilePage({
 					</div>
 				</div>
 			</div>
-			{/* <Button randomOperator={opData.name} /> */}
-			<Link
-				href={`/${opData.name}/E1`}
-				className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit p-1 mt-2"
-			>
-				E1
-			</Link>
+			<div className="flex gap-2">
+				<Link
+					href={`/${opData.name}`}
+					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit p-1 mt-2"
+				>
+					E2
+				</Link>
+				{/* <Link
+					href={`/operators`}
+					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit p-1 mt-2"
+				>
+					CN Operator
+				</Link> */}
+			</div>
 		</div>
 	);
 }

@@ -1,7 +1,8 @@
 import getOperator from "@/app/libs/getOperator";
 import Image from "next/image";
 import Navbar from "@/app/components/navbar";
-import Button from "@/app/components/button";
+import Link from "next/link";
+// import Button from "@/app/components/button";
 
 interface OperatorE1Page {
 	params: {
@@ -16,7 +17,7 @@ export default async function OperatorE1Page({ params }: OperatorE1Page) {
 	return (
 		<div className="text-center  flex justify-center items-center flex-col bg-gradient-to-t from-amber-50 to-cyan-50 h-[100vh]">
 			<div className="flex gap-5 justify-center items-center w-full">
-				<h1 className="text-lg">{opData.name}</h1>
+				<h1 className="">{opData.name}</h1>
 				<Navbar />
 				{/* <Button randomOperator={opData.name} /> */}
 			</div>
@@ -45,6 +46,12 @@ export default async function OperatorE1Page({ params }: OperatorE1Page) {
 					</div>
 				</div>
 			</div>
+			<Link
+				href={`/${opData.name}`}
+				className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit p-1 mt-2"
+			>
+				E2
+			</Link>
 		</div>
 	);
 }

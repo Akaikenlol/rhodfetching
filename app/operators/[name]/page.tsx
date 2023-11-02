@@ -1,6 +1,7 @@
 import Navbar from "@/app/components/navbar";
 import getOperator from "@/app/libs/getOperator";
 import Image from "next/image";
+import Link from "next/link";
 
 interface OperatorProfilePage {
 	params: {
@@ -44,6 +45,20 @@ export default async function OperatorProfilePage({
 						<p>Class: {opData.tags.join(" / ")}</p>
 					</div>
 				</div>
+			</div>
+			<div className="flex gap-2">
+				<Link
+					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit p-1"
+					href={`/operators/${opData.name}/E1`}
+				>
+					E1
+				</Link>
+				{/* <Link
+					className="hover:bg-black hover:text-white transition duration-500 ease-in-out rounded-md w-fit p-1"
+					href={`/operators`}
+				>
+					CN Operators
+				</Link> */}
 			</div>
 		</div>
 	);

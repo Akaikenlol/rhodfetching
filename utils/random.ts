@@ -7,7 +7,8 @@ export async function getRandom() {
 		// 	}
 		// );
 		const response = await fetch(
-			"https://rhodesapi.up.railway.app/api/operator/"
+			"https://rhodesapi.up.railway.app/api/operator/",
+			{ cache: "no-cache" }
 		);
 		if (!response.ok) {
 			throw new Error("Failed to fetch a random operator!");
@@ -48,6 +49,10 @@ async function fetchImage(operator: any) {
 
 	const imageData = await response.json();
 	const E2Image = imageData.art.find((image: any) => image.name === "E2");
+	const E1Image = imageData.art.find((image: any) => image.name === "E1");
+
+	// const image = imageData.art.find((img: any) => img.name === imageName);
 
 	return E2Image || null;
+	// return image || null;
 }
